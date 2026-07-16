@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ürün Detayı - HKFASHION</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+<div class="topbar">
+
+<h1>HKFASHION</h1>
+
+<a class="cart" href="cart.html">
+🛒
+</a>
+
+</div>
+
+</header>
+
+<div class="products">
+
+<div class="card">
+
+<img id="urunResim" src="">
+
+<h2 id="urunAd"></h2>
+
+<p class="price" id="urunFiyat"></p>
+
+<p id="urunAciklama">
+Kaliteli ve şık tasarımıyla günlük kullanıma uygundur.
+</p>
+<div class="rating-box">
+
+<h3>Ürün Değerlendirmeleri</h3>
+
+<div class="rating-summary">
+⭐⭐⭐⭐⭐
+<span>4.9 / 5</span>
+</div>
+
+<div class="comment-form">
+
+<select id="puan">
+<option value="5">5 Yıldız</option>
+<option value="4">4 Yıldız</option>
+<option value="3">3 Yıldız</option>
+<option value="2">2 Yıldız</option>
+<option value="1">1 Yıldız</option>
+</select>
+
+<textarea
+id="yorumMetni"
+placeholder="Ürün hakkındaki yorumunuzu yazın..."
+></textarea>
+
+<button id="yorumBtn">
+Yorum Gönder
+</button>
+
+</div>
+
+<div id="yorumlar"></div>
+
+</div>
+<button id="ekleBtn">
+Sepete Ekle
+</button>
+
+</div>
+
+</div>
+
+<script src="product.js"></script>
+
+</body>
+</html>

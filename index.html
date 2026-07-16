@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HKFASHION</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<a class="cart" href="cart.html">
+🛒 <span id="cartCount">0</span>
+</a>
+<header>
+
+<div class="topbar">
+
+<h1>HKFASHION</h1>
+<span id="kullaniciAdi"></span>
+<button id="cikisBtn" style="display:none;">
+Çıkış Yap
+</button>
+
+
+</div>
+
+<input
+type="text"
+id="arama"
+placeholder="Ürün ara..."
+>
+
+<nav>
+<a href="#anasayfa">Ana Sayfa</a>
+<a href="#urunler">Ürünler</a>
+<a href="favorites.html">
+❤️ Favoriler
+</a>
+<a href="#iletisim">İletişim</a>
+</nav>
+
+</header>
+
+<section class="hero" id="anasayfa">
+
+<h2>Tarzını Tamamla</h2>
+
+<p>Premium Saat • Gözlük • Elektronik</p>
+
+<a href="#urunler">
+<button>Alışverişe Başla</button>
+</a>
+
+</section>
+
+<section class="categories">
+
+<button onclick="filtrele('hepsi')">Tümü</button>
+
+<button onclick="filtrele('gozluk')">Gözlük</button>
+
+<button onclick="filtrele('saat')">Saat</button>
+
+<button onclick="filtrele('elektronik')">Elektronik</button>
+
+</section>
+
+<section class="products" id="urunler">
+
+<div class="card" data-category="gozluk">
+
+<<a href="product.html?id=1">
+    <img src="images/Screenshot_20260715233807~2.png">
+</a>
+
+<h3>Prada Kahverengi Gözlük</h3>
+
+<p class="price">Fiyat için iletişime geçin</p>
+
+<button onclick="sepeteEkle('Prada Kahverengi Gözlük', 0)">
+Sepete Ekle
+</button>
+
+<button class="fav" onclick="favoriyeEkle('Prada Kahverengi Gözlük')">
+❤️ Favorilere Ekle
+</button>
+
+</div>
+
+<div class="card" data-category="gozluk">
+
+<img src="images/Screenshot_20260715233753.png">
+
+<h3>Prada Siyah Gözlük</h3>
+
+<p class="price">Fiyat için iletişime geçin</p>
+
+<button onclick="sepeteEkle('Prada Siyah Gözlük',0)">
+Sepete Ekle
+<button class="fav" onclick="favoriyeEkle('Prada Siyah Gözlük')">
+❤️ Favorilere Ekle
+</button>
+
+</div>
+
+<div class="card" data-category="saat">
+
+<img src=images/Screenshot_20260715233730.png
+
+<h3>Versace Gümüş Saat</h3>
+
+<p class="price">Fiyat için iletişime geçin</p>
+
+<button onclick="sepeteEkle('Versace Gümüş Saat',0)">
+Sepete Ekle
+<button class="fav" onclick="favoriyeEkle(' Versace Gümüş Saat')">
+❤️ Favorilere Ekle
+</button>
+
+</div>
+
+<div class="card" data-category="saat">
+
+<img src=images/Screenshot_20260715233713.png
+
+<h3>Versace Siyah Saat</h3>
+
+<p class="price">Fiyat için iletişime geçin</p>
+
+<button onclick="sepeteEkle('Versace Siyah Saat',0)">
+Sepete Ekle
+<button class="fav" onclick="favoriyeEkle('Versace Siyah Saat')">
+❤️ Favorilere Ekle
+</button>
+
+</div>
+
+<div class="card" data-category="saat">
+
+<img src="images/Screenshot_20260715233512~2.png">
+
+<h3>Versace Gold Saat</h3>
+
+<p class="price">Fiyat için iletişime geçin</p>
+
+<button onclick="sepeteEkle('Versace Gold Saat',0)">
+Sepete Ekle
+</button>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+<section class="contact" id="iletisim">
+
+<h2>İletişim</h2>
+
+<p>
+WhatsApp:
+<a href="https://wa.me/905412098671">
+0541 209 86 71
+</a>
+</p>
+
+<p>
+Instagram:
+<a href="https://instagram.com/halilkaynakk">
+@halilkaynakk
+</a>
+</p>
+
+</section>
+
+<footer>
+
+<p>© 2026 HKFASHION</p>
+
+</footer>
+
+<a
+class="whatsapp"
+href="https://wa.me/905412098671"
+>
+💬
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>

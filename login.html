@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Giriş Yap - HKFASHION</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="auth-page">
+
+<div class="auth-card">
+
+<h1>HKFASHION</h1>
+
+<h2>Giriş Yap</h2>
+
+<input
+type="text"
+id="girisKullanici"
+placeholder="Kullanıcı adı"
+>
+
+<input
+type="password"
+id="girisSifre"
+placeholder="Şifre"
+>
+
+<button id="girisBtn">
+Giriş Yap
+</button>
+
+<p>
+Hesabın yok mu?
+<a href="register.html">Kayıt Ol</a>
+</p>
+
+<a class="home-link" href="index.html">
+← Ana Sayfaya Dön
+</a>
+
+</div>
+
+</div>
+
+<script>
+document.getElementById("girisBtn").onclick = function(){
+
+    var kullanici =
+    document.getElementById("girisKullanici").value.trim();
+
+    var sifre =
+    document.getElementById("girisSifre").value.trim();
+
+    var kayitliKullanici =
+    localStorage.getItem("hkKullanici");
+
+    var kayitliSifre =
+    localStorage.getItem("hkSifre");
+
+    if(kullanici === "" || sifre === ""){
+        alert("Kullanıcı adı ve şifreyi yaz!");
+        return;
+    }
+
+    if(
+        kullanici === kayitliKullanici &&
+        sifre === kayitliSifre
+    ){
+        localStorage.setItem("girisYapildi","evet");
+
+        alert("Giriş başarılı!");
+
+        window.location.href = "index.html";
+    }else{
+        alert("Kullanıcı adı veya şifre yanlış!");
+    }
+
+};
+</script>
+
+</body>
+</html>

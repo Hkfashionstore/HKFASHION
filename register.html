@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kayıt Ol - HKFASHION</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="auth-page">
+
+<div class="auth-card">
+
+<h1>HKFASHION</h1>
+
+<h2>Kayıt Ol</h2>
+
+<input
+type="text"
+id="kayitKullanici"
+placeholder="Kullanıcı adı"
+>
+
+<input
+type="password"
+id="kayitSifre"
+placeholder="Şifre"
+>
+
+<button id="kayitBtn">
+Kayıt Ol
+</button>
+
+<p>
+Zaten hesabın var mı?
+<a href="login.html">Giriş Yap</a>
+</p>
+
+<a class="home-link" href="index.html">
+← Ana Sayfaya Dön
+</a>
+
+</div>
+
+</div>
+
+<script>
+document.getElementById("kayitBtn").onclick = function(){
+
+    var kullanici = document.getElementById("kayitKullanici").value.trim();
+    var sifre = document.getElementById("kayitSifre").value.trim();
+
+    if(kullanici === "" || sifre === ""){
+        alert("Kullanıcı adı ve şifre boş bırakılamaz!");
+        return;
+    }
+
+    localStorage.setItem("hkKullanici", kullanici);
+    localStorage.setItem("hkSifre", sifre);
+
+    alert("Kayıt başarılı!");
+
+    window.location.href = "login.html";
+};
+</script>
+
+</body>
+</html>
