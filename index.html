@@ -1,212 +1,597 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>HKFASHION</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<link rel="stylesheet" href="style.css">
+    <title>HKFASHION</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
 <a class="cart" href="cart.html">
-🛒 <span id="cartCount">0</span>
+    🛒 <span id="cartCount">0</span>
 </a>
+
+
 <header>
 
-<div class="topbar">
+    <div class="topbar">
 
-<h1>HKFASHION</h1>
-<span id="kullaniciAdi"></span>
-<button id="cikisBtn" style="display:none;">
-Çıkış Yap
-</button>
+        <h1>HKFASHION</h1>
 
+        <span id="kullaniciAdi"></span>
 
-</div>
+        <button id="cikisBtn" style="display:none;">
+            Çıkış Yap
+        </button>
 
-<input
-type="text"
-id="arama"
-placeholder="Ürün ara..."
->
+    </div>
 
-<nav>
-<a href="#anasayfa">Ana Sayfa</a>
-<a href="#urunler">Ürünler</a>
-<a href="favorites.html">
-❤️ Favoriler
-</a>
-<a href="#iletisim">İletişim</a>
-</nav>
+    <input
+        type="text"
+        id="arama"
+        placeholder="Ürün ara..."
+    >
+
+    <nav>
+        <a href="#anasayfa">Ana Sayfa</a>
+        <a href="#urunler">Ürünler</a>
+        <a href="favorites.html">❤️ Favoriler</a>
+        <a href="#iletisim">İletişim</a>
+    </nav>
 
 </header>
 
+
 <section class="hero" id="anasayfa">
 
-<h2>Tarzını Tamamla</h2>
+    <h2>Tarzını Tamamla</h2>
 
-<p>Premium Saat • Gözlük • Elektronik</p>
+    <p>Premium Saat • Gözlük • Çift Saat</p>
 
-<a href="#urunler">
-<button>Alışverişe Başla</button>
-</a>
+    <a href="#urunler">
+        <button>Alışverişe Başla</button>
+    </a>
 
 </section>
+
 
 <section class="categories">
 
-<button onclick="filtrele('hepsi')">Tümü</button>
+    <button onclick="filtrele('hepsi')">
+        Tümü
+    </button>
 
-<button onclick="filtrele('gozluk')">Gözlük</button>
+    <button onclick="filtrele('erkek')">
+        Erkek
+    </button>
 
-<button onclick="filtrele('saat')">Saat</button>
+    <button onclick="filtrele('kadin')">
+        Kadın
+    </button>
 
-<button onclick="filtrele('elektronik')">Elektronik</button>
+    <button onclick="filtrele('cift')">
+        Çift Saat
+    </button>
+
+    <button onclick="filtrele('saat')">
+        Saat
+    </button>
+
+    <button onclick="filtrele('audemars')">
+        Audemars Piguet
+    </button>
+
+    <button onclick="filtrele('bvlgari')">
+        Bvlgari
+    </button>
 
 </section>
 
-<section class="products" id="urunler">
 
-<div class="card" data-category="gozluk">
+<section class="products" id="urunler"></section>
 
-<<a href="product.html?id=1">
-    <img src="images/Screenshot_20260715233807~2.png">
-</a>
-
-<h3>Prada Kahverengi Gözlük</h3>
-
-<p class="price">Fiyat için iletişime geçin</p>
-
-<button onclick="sepeteEkle('Prada Kahverengi Gözlük', 0)">
-Sepete Ekle
-</button>
-
-<button class="fav" onclick="favoriyeEkle('Prada Kahverengi Gözlük')">
-❤️ Favorilere Ekle
-</button>
-
-</div>
-
-<div class="card" data-category="gozluk">
-
-<img src="images/Screenshot_20260715233753.png">
-
-<h3>Prada Siyah Gözlük</h3>
-
-<p class="price">Fiyat için iletişime geçin</p>
-
-<button onclick="sepeteEkle('Prada Siyah Gözlük',0)">
-Sepete Ekle
-<button class="fav" onclick="favoriyeEkle('Prada Siyah Gözlük')">
-❤️ Favorilere Ekle
-</button>
-
-</div>
-
-<div class="card" data-category="saat">
-
-<img src=images/Screenshot_20260715233730.png
-
-<h3>Versace Gümüş Saat</h3>
-
-<p class="price">Fiyat için iletişime geçin</p>
-
-<button onclick="sepeteEkle('Versace Gümüş Saat',0)">
-Sepete Ekle
-<button class="fav" onclick="favoriyeEkle(' Versace Gümüş Saat')">
-❤️ Favorilere Ekle
-</button>
-
-</div>
-
-<div class="card" data-category="saat">
-
-<img src=images/Screenshot_20260715233713.png
-
-<h3>Versace Siyah Saat</h3>
-
-<p class="price">Fiyat için iletişime geçin</p>
-
-<button onclick="sepeteEkle('Versace Siyah Saat',0)">
-Sepete Ekle
-<button class="fav" onclick="favoriyeEkle('Versace Siyah Saat')">
-❤️ Favorilere Ekle
-</button>
-
-</div>
-
-<div class="card" data-category="saat">
-
-<img src="images/Screenshot_20260715233512~2.png">
-
-<h3>Versace Gold Saat</h3>
-
-<p class="price">Fiyat için iletişime geçin</p>
-
-<button onclick="sepeteEkle('Versace Gold Saat',0)">
-Sepete Ekle
-</button>
-
-</div>
-
-
-
-</div>
-<div class="card" data-category="erkek saat">
-
-<img src="images/Screenshot_20260716235726.png" alt="Audemars Piguet Royal Oak">
-
-<h3>Audemars Piguet Royal Oak</h3>
-
-<p class="price">Fiyat için iletişime geçin</p>
-
-<button onclick="sepeteEkle('Audemars Piguet Royal Oak',0)">
-Sepete Ekle
-</button>
-
-<button class="fav" onclick="favoriyeEkle('Audemars Piguet Royal Oak')">
-❤️ Favorilere Ekle
-</button>
-
-</div>
-</section>
 
 <section class="contact" id="iletisim">
 
-<h2>İletişim</h2>
+    <h2>İletişim</h2>
 
-<p>
-WhatsApp:
-<a href="https://wa.me/905412098671">
-0541 209 86 71
-</a>
-</p>
+    <p>
+        WhatsApp:
+        <a href="https://wa.me/905412098671">
+            0541 209 86 71
+        </a>
+    </p>
 
-<p>
-Instagram:
-<a href="https://instagram.com/halilkaynakk">
-@halilkaynakk
-</a>
-</p>
+    <p>
+        Instagram:
+        <a
+            href="https://instagram.com/halilkaynakk"
+            target="_blank"
+        >
+            @halilkaynakk
+        </a>
+    </p>
 
 </section>
 
+
 <footer>
-
-<p>© 2026 HKFASHION</p>
-
+    <p>© 2026 HKFASHION</p>
 </footer>
 
+
 <a
-class="whatsapp"
-href="https://wa.me/905412098671"
+    class="whatsapp"
+    href="https://wa.me/905412098671"
 >
-💬
+    💬
 </a>
+
+
+<script>
+
+const urunler = [
+
+    /* AUDEMARS PIGUET ERKEK */
+
+    {
+        ad: "Audemars Piguet Gümüş",
+        resim: "Screenshot_20260716235726.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Rose Gold",
+        resim: "Screenshot_20260717134828.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Yeşil",
+        resim: "Screenshot_20260717134851.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Mavi",
+        resim: "Screenshot_20260717134905.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Gümüş Siyah",
+        resim: "Screenshot_20260717141038.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Rose Gold Beyaz",
+        resim: "Screenshot_20260717141056.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Kırmızı Detay",
+        resim: "Screenshot_20260717141113.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Gri",
+        resim: "Screenshot_20260717141123.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Kahverengi",
+        resim: "Screenshot_20260717141151.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Kırmızı",
+        resim: "Screenshot_20260717141207.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Yeşil 2",
+        resim: "Screenshot_20260717141245.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Gümüş Taşlı",
+        resim: "Screenshot_20260717141325.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Lacivert",
+        resim: "Screenshot_20260717141338.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Bakır",
+        resim: "Screenshot_20260717141350.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Sarı",
+        resim: "Screenshot_20260717141402.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Siyah",
+        resim: "Screenshot_20260717141416.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Açık Gri",
+        resim: "Screenshot_20260717141428.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Beyaz Gold",
+        resim: "Screenshot_20260717141443.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Açık Mavi",
+        resim: "Screenshot_20260717141456.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Siyah Gold",
+        resim: "Screenshot_20260717141508.png",
+        kategori: "erkek saat audemars"
+    },
+
+    {
+        ad: "Audemars Piguet Full Siyah",
+        resim: "Screenshot_20260717141520.png",
+        kategori: "erkek saat audemars"
+    },
+
+
+    /* ÇİFT SAATLER */
+
+    {
+        ad: "Çift Saat Gümüş Siyah",
+        resim: "Screenshot_20260717141956.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gümüş Mavi",
+        resim: "Screenshot_20260717142009.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Açık Mavi",
+        resim: "Screenshot_20260717142023.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gold Siyah",
+        resim: "Screenshot_20260717142034.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gold Beyaz",
+        resim: "Screenshot_20260717142051.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gold Turkuaz",
+        resim: "Screenshot_20260717142101.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gold Lacivert",
+        resim: "Screenshot_20260717142113.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gold Yeşil",
+        resim: "Screenshot_20260717142124.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Full Gold",
+        resim: "Screenshot_20260717142133.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gold Mavi",
+        resim: "Screenshot_20260717142142.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gold Gümüş",
+        resim: "Screenshot_20260717142154.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gold Lacivert 2",
+        resim: "Screenshot_20260717142205.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gold Yeşil 2",
+        resim: "Screenshot_20260717142215.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gümüş Taşlı",
+        resim: "Screenshot_20260717142303.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gümüş Lacivert",
+        resim: "Screenshot_20260717142311.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gold Beyaz 2",
+        resim: "Screenshot_20260717142326.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gümüş Siyah 2",
+        resim: "Screenshot_20260717142336.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gold Siyah 2",
+        resim: "Screenshot_20260717142349.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gümüş Taşlı 2",
+        resim: "Screenshot_20260717142359.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gümüş Mavi 2",
+        resim: "Screenshot_20260717142411.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gümüş Turkuaz",
+        resim: "Screenshot_20260717142420.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Gold Siyah 3",
+        resim: "Screenshot_20260717142430.png",
+        kategori: "cift saat"
+    },
+
+    {
+        ad: "Çift Saat Full Gold Siyah",
+        resim: "Screenshot_20260717142444.png",
+        kategori: "cift saat"
+    },
+
+
+    /* BVLGARI KADIN */
+
+    {
+        ad: "Bvlgari Rose Gold Kırmızı",
+        resim: "Screenshot_20260717143537.png",
+        kategori: "kadin saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Gümüş Kırmızı",
+        resim: "Screenshot_20260717143642.png",
+        kategori: "kadin saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Rose Gold Siyah",
+        resim: "Screenshot_20260717143649.png",
+        kategori: "kadin saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Rose Gold Kahverengi",
+        resim: "Screenshot_20260717143711.png",
+        kategori: "kadin saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Rose Gold Beyaz",
+        resim: "Screenshot_20260717143720.png",
+        kategori: "kadin saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Rose Gold Yeşil",
+        resim: "Screenshot_20260717143733.png",
+        kategori: "kadin saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Rose Gold Turkuaz",
+        resim: "Screenshot_20260717143743.png",
+        kategori: "kadin saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Rose Gold Lacivert",
+        resim: "Screenshot_20260717143755.png",
+        kategori: "kadin saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Rose Gold Taşlı",
+        resim: "Screenshot_20260717143818.png",
+        kategori: "kadin saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Gümüş Taşlı",
+        resim: "Screenshot_20260717143831.png",
+        kategori: "kadin saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Gümüş Lacivert",
+        resim: "Screenshot_20260717143855.png",
+        kategori: "kadin saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Gümüş Kırmızı Taşlı",
+        resim: "Screenshot_20260717143903.png",
+        kategori: "kadin saat bvlgari"
+    },
+
+
+    /* BVLGARI ERKEK */
+
+    {
+        ad: "Bvlgari Erkek Siyah",
+        resim: "Screenshot_20260717144543.png",
+        kategori: "erkek saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Erkek Gümüş",
+        resim: "Screenshot_20260717144557.png",
+        kategori: "erkek saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Erkek Lacivert",
+        resim: "Screenshot_20260717144607.png",
+        kategori: "erkek saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Erkek Siyah Deri",
+        resim: "Screenshot_20260717144623.png",
+        kategori: "erkek saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Erkek Mavi",
+        resim: "Screenshot_20260717144631.png",
+        kategori: "erkek saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Erkek Beyaz",
+        resim: "Screenshot_20260717144644.png",
+        kategori: "erkek saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Erkek Siyah Taşlı",
+        resim: "Screenshot_20260717144655.png",
+        kategori: "erkek saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Erkek Gümüş Taşlı",
+        resim: "Screenshot_20260717144708.png",
+        kategori: "erkek saat bvlgari"
+    },
+
+    {
+        ad: "Bvlgari Erkek Gold",
+        resim: "Screenshot_20260717144725.png",
+        kategori: "erkek saat bvlgari"
+    }
+
+];
+
+
+const urunlerAlani = document.getElementById("urunler");
+
+
+urunler.forEach(function(urun) {
+
+    urunlerAlani.innerHTML += `
+
+        <div
+            class="card"
+            data-category="${urun.kategori}"
+        >
+
+            <img
+                src="images/${urun.resim}"
+                alt="${urun.ad}"
+            >
+
+            <h3>${urun.ad}</h3>
+
+            <p class="price">
+                Fiyat için iletişime geçin
+            </p>
+
+            <button
+                onclick="sepeteEkle('${urun.ad}', 0)"
+            >
+                Sepete Ekle
+            </button>
+
+            <button
+                class="fav"
+                onclick="favoriyeEkle('${urun.ad}')"
+            >
+                ❤️ Favorilere Ekle
+            </button>
+
+        </div>
+
+    `;
+
+});
+
+</script>
+
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
