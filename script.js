@@ -1,107 +1,124 @@
-var sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+document.addEventListener("DOMContentLoaded", function () {
+    sepetSayisiniGuncelle();
+    kullaniciBilgisiniGoster();
+    aramayiHazirla();
+});
 
-function sepeteEkle(urun, fiyat) {
+function sepetiGetir() {
+    return JSON.parse(localStorage.getItem("sepet")) || [];
+}
+
+function favorileriGetir() {
+    return JSON.parse(localStorage.getItem("favoriler")) || [];
+}
+
+function sepeteEkle(ad, fiyat) {
+    const sepet = sepetiGetir();
+
     sepet.push({
-        ad: urun,
-        fiyat: fiyat
+        ad: ad,
+        fiyat: Number(fiyat) || 0
     });
 
     localStorage.setItem("sepet", JSON.stringify(sepet));
 
-    var sayac = document.getElementById("cartCount");
+    sepetSayisiniGuncelle();
 
-    if (sayac) {
-        sayac.innerHTML = sepet.length;
+    alert(ad + " sepete eklendi.");
+}
+
+function favoriyeEkle(ad) {
+    const favoriler = favorileriGetir();
+
+    if (!favoriler.includes(ad)) {
+        favoriler.push(ad);
+        localStorage.setItem("favoriler", JSON.stringify(favoriler));
+        alert(ad + " favorilere eklendi.");
+    } else {
+        alert("Bu ürün zaten favorilerde.");
     }
-console.log(sepet.length);
-    alert(urun + " sepete eklendi!");
+}
+
+function sepetSayisiniGuncelle() {
+    const sayac = document.getElementById("cartCount");
+
+    if (!sayac) {
+        return;
+    }
+
+    const sepet = sepetiGetir();
+    sayac.textContent = sepet.length;
 }
 
 function filtrele(kategori) {
-    var kartlar = document.getElementsByClassName("card");
+    const kartlar = document.querySelectorAll(".card");
 
-    for (var i = 0; i < kartlar.length; i++) {
-        var kartKategori =
-            kartlar[i].getAttribute("data-category") || "";
+    kartlar.forEach(function (kart) {
+        const kategoriBilgisi =
+            kart.getAttribute("data-category") || "";
 
         if (
             kategori === "hepsi" ||
-            kartKategori.includes(kategori)
+            kategoriBilgisi.includes(kategori)
         ) {
-            kartlar[i].style.display = "block";
+            kart.style.display = "block";
         } else {
-            kartlar[i].style.display = "none";
+            kart.style.display = "none";
         }
-    }
+    });
 }
 
-window.onload = function () {
-    var sayac = document.getElementById("cartCount");
+function aramayiHazirla() {
+    const aramaKutusu = document.getElementById("arama");
 
-    if (sayac) {
-        sayac.innerHTML = sepet.length;
+    if (!aramaKutusu) {
+        return;
     }
 
-    var arama = document.getElementById("arama");
+    aramaKutusu.addEventListener("input", function () {
+        const aranan = aramaKutusu.value
+            .toLocaleLowerCase("tr-TR")
+            .trim();
 
-    if (arama) {
-        arama.onkeyup = function () {
-            var yazilan = arama.value.toLowerCase();
-            var kartlar = document.getElementsByClassName("card");
+        const kartlar = document.querySelectorAll(".card");
 
-            for (var i = 0; i < kartlar.length; i++) {
-                var baslik = kartlar[i].getElementsByTagName("h3")[0];
+        kartlar.forEach(function (kart) {
+            const urunAdi = kart.textContent
+                .toLocaleLowerCase("tr-TR");
 
-                if (
-                    baslik &&
-                    baslik.innerHTML.toLowerCase().includes(yazilan)
-                ) {
-                    kartlar[i].style.display = "block";
-                } else {
-                    kartlar[i].style.display = "none";
-                }
+            if (urunAdi.includes(aranan)) {
+                kart.style.display = "block";
+            } else {
+                kart.style.display = "none";
             }
-        };
+        });
+    });
+}
+
+function kullaniciBilgisiniGoster() {
+    const kullaniciAlani =
+        document.getElementById("kullaniciAdi");
+
+    const cikisButonu =
+        document.getElementById("cikisBtn");
+
+    const kullanici =
+        JSON.parse(localStorage.getItem("girisYapanKullanici"));
+
+    if (kullaniciAlani && kullanici) {
+        kullaniciAlani.textContent =
+            "Merhaba, " +
+            (kullanici.ad || kullanici.kullaniciAdi || "Kullanıcı");
     }
-};var favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
 
-function favoriyeEkle(urun){
+    if (cikisButonu && kullanici) {
+        cikisButonu.style.display = "inline-block";
+    }
 
-    favoriler.push(urun);
-
-    localStorage.setItem("favoriler", JSON.stringify(favoriler));
-
-    alert(urun + " favorilere eklendi ❤️");
-
-}var kullanici = localStorage.getItem("hkKullanici");
-var giris = localStorage.getItem("girisYapildi");
-
-if(giris === "evet" && kullanici){
-
-    document.getElementById("kullaniciAdi").innerHTML =
-    "👋 Merhaba, " + kullanici;
-
-}var cikisBtn = document.getElementById("cikisBtn");
-
-if(giris === "evet" && kullanici){
-
-    document.getElementById("kullaniciAdi").innerHTML =
-    "👋 Merhaba, " + kullanici;
-
-    cikisBtn.style.display = "inline-block";
-
-    cikisBtn.onclick = function(){
-
-        localStorage.removeItem("girisYapildi");
-
-        alert("Çıkış yapıldı.");
-
-        location.reload();
-
-    };
-
-}var sayac = document.getElementById("cartCount");
-
-if (sayac) {
-    sayac.innerHTML = sepet.length;
+    if (cikisButonu) {
+        cikisButonu.addEventListener("click", function () {
+            localStorage.removeItem("girisYapanKullanici");
+            window.location.reload();
+        });
+    }
 }
