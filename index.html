@@ -586,7 +586,19 @@ urunler.forEach(function(urun) {
     `;
 
 });
+window.filtrele = function(kategori) {
+    const kartlar = document.querySelectorAll(".card");
 
+    kartlar.forEach(function(kart) {
+        const bilgiler = kart.getAttribute("data-category") || "";
+
+        if (kategori === "hepsi" || bilgiler.includes(kategori)) {
+            kart.style.display = "";
+        } else {
+            kart.style.display = "none";
+        }
+    });
+};
 </script>
 
 
