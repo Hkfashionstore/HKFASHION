@@ -21,9 +21,13 @@ function filtrele(kategori) {
     var kartlar = document.getElementsByClassName("card");
 
     for (var i = 0; i < kartlar.length; i++) {
-        var kartKategori = kartlar[i].getAttribute("data-category");
+        var kartKategori =
+            kartlar[i].getAttribute("data-category") || "";
 
-        if (kategori === "hepsi" || kartKategori === kategori) {
+        if (
+            kategori === "hepsi" ||
+            kartKategori.includes(kategori)
+        ) {
             kartlar[i].style.display = "block";
         } else {
             kartlar[i].style.display = "none";
