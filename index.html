@@ -392,7 +392,7 @@
         kart.dataset.category = urun.kategori;
 
         const resim = document.createElement("img");
-        resim.src = urun.resim;
+        resim.src = "./" + urun.resim;
         resim.alt = urun.ad;
 
         resim.onerror = function () {
